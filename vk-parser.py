@@ -1,7 +1,7 @@
 import vk # импортируем модуль vk
 
 
-def get_members(groupid): # функция формирования базы участников сообщества в виде списка(массива)
+def get_members(groupid): # функция формирования базы участников сообщества в виде списка
     first = vk_api.groups.getMembers(group_id=groupid, v=5.92) # первое выполнение метода
     data = first["items"] # присваиваем переменной первую тысячу id'шников
     count = first["count"] // 1000 # присваиваем переменной количество тысяч участников
@@ -19,8 +19,8 @@ def save_data(data, filename="data"): # функция сохранения ба
 
 def enter_data(filename="data"): # функция ввода базы из txt файла
     file = open(str(filename)+".txt") # открываем файл на чтение
-    b = [] # создаем пустой массив
-    for line in file: # записываем каждую строчку файла в массив, убирая "vk.com/id" и "\n" с помощью среза
+    b = [] # создаем пустой список
+    for line in file: # записываем каждую строчку файла в список, убирая "vk.com/id" и "\n" с помощью среза
         b.append(line[9:len(line) - 1])
     file.close() # закрываем файл
     return b
