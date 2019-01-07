@@ -12,14 +12,14 @@ def get_members(groupid):  # Функция формирования базы у
     return data
 
 
-def save_data(data, filename="data"):  # Функция сохранения базы в txt файле
-    with open(filename +".txt", "w") as file:  # Открываем файл на запись
+def save_data(data, filename="data.txt"):  # Функция сохранения базы в txt файле
+    with open(filename, "w") as file:  # Открываем файл на запись
         for item in data:  # Записываем каждый id'шник в новой строке, добавляя в начало "vk.com/id", а в конец перенос строки
             file.write("vk.com/id" + str(item) + "\n") 
 
 
-def enter_data(filename="data"):  # Функция ввода базы из txt файла
-    with open(filename+".txt") as file:  # Открываем файл на чтение
+def enter_data(filename="data.txt"):  # Функция ввода базы из txt файла
+    with open(filename) as file:  # Открываем файл на чтение
         b = []  
         for line in file:  # Записываем каждую строчку файла в список, убирая "vk.com/id" и "\n" с помощью среза
             b.append(line[9:len(line) - 1])  
