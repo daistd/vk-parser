@@ -15,7 +15,7 @@ def get_members(groupid):  # Функция формирования базы у
 def save_data(data, filename="data.txt"):  # Функция сохранения базы в txt файле
     with open(filename, "w") as file:  # Открываем файл на запись
         # Записываем каждый id'шник в новой строке,
-        # добавляя в начало "vk.com/id", а в конец перенос строки
+        # добавляя в начало "vk.com/id", а в конец перенос строки.
         for item in data:   
             file.write("vk.com/id" + str(item) + "\n") 
 
@@ -24,7 +24,7 @@ def enter_data(filename="data.txt"):  # Функция ввода базы из 
     with open(filename) as file:  # Открываем файл на чтение
         b = [] 
         # Записываем каждую строчку файла в список,
-        # убирая "vk.com/id" и "\n" с помощью среза
+        # убирая "vk.com/id" и "\n" с помощью среза.
         for line in file:   
             b.append(line[9:len(line) - 1])  
     return b
