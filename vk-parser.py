@@ -5,7 +5,9 @@ def get_members(groupid):  # Функция формирования базы у
     first = vk_api.groups.getMembers(group_id=groupid, v=5.92)  # Первое выполнение метода
     data = first["items"]  # Присваиваем переменной первую тысячу id'шников
     count = first["count"] // 1000  # Присваиваем переменной количество тысяч участников
-    for i in range(1, count+1):  # С каждым проходом цикла смещение offset увеличивается на тысячу и еще тысяча id'шников добавляется к нашему списку
+    # С каждым проходом цикла смещение offset увеличивается на тысячу
+    # и еще тысяча id'шников добавляется к нашему списку.
+    for i in range(1, count+1): 
         data = data + vk_api.groups.getMembers(group_id=groupid, v=5.92, offset=i*1000)["items"]
     return data
 
